@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+@theme {
+  --breakpoint-*: initial;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 960px;
+  --breakpoint-xl: 1200px;
+
+  --font-primary: 'DM Serif Display', sans-serif;
+  --font-secondary: 'Jost', sans-serif;
+
+  --color-primary: #292F36;
+  --color-primary-hover: #343E4A;
+
+  --color-secondary: #4D5053;
+
+  --color-accent: #CDA274;
+  --color-accent-secondary: #F4F0EC;
+  --color-accent-hover: #B88C5D;
+}
+
+@layer components {
+  .container {
+    padding: 1rem;
+  }
+}
+
+@utility bg-grid {
+  background-image: url('../assets/grid.png');
+}
+
+html {
+  @apply scroll-smooth;
+}
+
+body {
+  @apply font-secondary text-[22px] text-secondary;
+}
+
+a {
+  @apply text-[20px] hover:text-accent-hover transition-all duration-300;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-primary text-primary;
+}
+
+.h1 {
+  @apply text-[64px] lg:text-[84px] leading-none;
+}
+
+.h2 {
+  @apply text-[50px] leading-tight;
+}
+
+.h3 {
+  @apply text-[25px];
+}
+
+.btn {
+  @apply h-[75px] px-[30px] transition-all duration-300 text-white rounded-[18px] flex items-center gap-2 cursor-pointer;
+}
+
+.btn-primary {
+  @apply bg-primary hover:bg-primary-hover;
+}
+
+.btn-accent {
+  @apply bg-accent hover:bg-accent-hover;
+}
+
+.nav-is-open {
+  @apply h-[400px] p-6;
+}
+
+/* swiper pagination */
+.swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet,
+.swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+  @apply bg-primary;
+}
