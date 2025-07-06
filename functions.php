@@ -145,7 +145,7 @@ function interno_scripts()
 	wp_enqueue_style('icons', 'https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.min.css');
 	wp_enqueue_style('fonts', 'https://fonts.bunny.net/css?family=dm-serif-display:400|jost:400');
 	wp_enqueue_style('swiper-css', get_template_directory_uri() . '/assets/css/swiper-bundle.min.css');
-	wp_enqueue_style('styles-css', get_template_directory_uri() . '/assets/css/dist/styles.css');
+	wp_enqueue_style('styles-css', get_template_directory_uri() . '/assets/css/styles.css');
 	
 	wp_enqueue_script('scroll-reveal', get_template_directory_uri() . '/assets/js/scrollreveal.min.js', [], null,true);
 	wp_enqueue_script('swiper-js', get_template_directory_uri() . '/assets/js/swiper-bundle.min.js', [], null, true);
