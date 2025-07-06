@@ -142,7 +142,7 @@ Template Name: "Home Page"
           <div class="testimonial__slider swiper h-[400px]">
             <div class="swiper-wrapper">
               <!-- slide-1 -->
-              
+
               <?php foreach ($testimonial_cards as $card): ?>
                 <div class="swiper-slide">
                   <!-- item -->
@@ -159,7 +159,7 @@ Template Name: "Home Page"
                   </div>
                 </div>
               <?php endforeach; ?>
-              
+
             </div>
             <!-- swiper pagination -->
             <div class="swiper-pagination"></div>
