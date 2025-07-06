@@ -9,7 +9,7 @@ Template Name: "Home Page"
 <!-- page wrapper -->
 <main class="max-w-[1920px] mx-auto overflow-hidden">
   <!-- grid img -->
-  <div class="xl:bg-grid xl:bg-center xl:bg-repeat-y fixed top-0 bottom-0 left-0 right-0 z-10"></div>
+  <!-- <div class="xl:bg-grid xl:bg-center xl:bg-repeat-y fixed top-0 bottom-0 left-0 right-0 z-10"></div> -->
 
   <!-- hero -->
   <section class="hero relative z-20">

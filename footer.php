@@ -13,8 +13,9 @@
 
 <!-- footer -->
 <footer class="footer bg-primary h-15 flex items-center justify-center">
-  <p class="text-accent text-sm"><?php echo esc_html(get_field('site_footer', 'options')); ?></p>
+  <p class="text-accent text-sm"><?= esc_html(get_field('site_footer', 'options')) ?></p>
 </footer>
+
 <?php wp_footer(); ?>
 </body>
 
