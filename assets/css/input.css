@@ -26,9 +26,9 @@
   }
 }
 
-@utility bg-grid {
-  background-image: url('../assets/grid.png');
-}
+/* @utility bg-grid {
+  background-image: url('../img/grid.png');
+} */
 
 html {
   @apply scroll-smooth;
