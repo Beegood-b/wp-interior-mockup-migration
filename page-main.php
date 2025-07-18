@@ -12,11 +12,8 @@ Template Name: "Home Page"
   <!-- <div class="xl:bg-grid xl:bg-center xl:bg-repeat-y fixed top-0 bottom-0 left-0 right-0 z-10"></div> -->
 
   <!-- hero -->
-  <section class="hero relative z-20">
-    <!-- img -->
-    <div class="max-h-dvh lg:max-h-[800px] lg:overflow-hidden lg:rounded-bl-[200px] lg:flex lg:items-center">
-      <img class="hero__img blur-[1px] md:blur-none" src="<?php echo esc_url(get_field('main_image')); ?>" alt="" />
-    </div>
+  <section
+    class="hero h-[640px] xl:h-[840px] bg-hero bg-center lg:bg-cover bg-no-repeat bg-fixed xl:rounded-bl-[290px] relative z-20">
     <div class="container mx-auto h-full flex items-center absolute inset-0">
       <!-- text -->
       <div class="hero__text w-[567px] flex flex-col items-center text-center xl:text-left lg:items-start">
@@ -91,12 +88,12 @@ Template Name: "Home Page"
   </section>
 
   <!-- about -->
-  <section id="about" class="about mt-[80px] xl:mt-[200px] relative z-20">
+  <section id="about" class="about xl:scroll-mt-[70px] mt-[80px] xl:mt-[200px] relative z-20">
     <div class="container mx-auto xl:px-0">
       <div class="flex flex-col xl:flex-row text-center xl:text-left justify-between items-center gap-8 xl:gap-[74px]">
         <!-- text -->
         <div
-          class="flex-1 order-2 xl:order-none max-w-xl xl:max-w-[410px] flex flex-col items-center xl:items-start gap-8">
+          class="about__text flex-1 order-2 xl:order-none max-w-xl xl:max-w-[410px] flex flex-col items-center xl:items-start gap-8">
           <h2 class="h2"><?php echo esc_html(get_field('about_title')); ?></h2>
           <p><?php echo esc_html(get_field('about_subtitle')); ?></p>
           <!-- phone -->
@@ -131,10 +128,10 @@ Template Name: "Home Page"
   <!-- testimonial -->
   <?php $testimonial_cards = get_field('testimonial_cards'); ?>
 
-  <section id="testimonials" class="testimonial mt-[80px] xl:mt-[200px] relative z-20">
-    <div class="testimonial__bg container mx-auto bg-accent-secondary rounded-[70px] px-6">
+  <section id="testimonials" class="testimonial xl:scroll-mt-[70px] mt-[80px] xl:mt-[200px] relative z-20">
+    <div class="testimonial__bg container mx-auto bg-primary xl:rounded-[70px] px-6">
       <div class="flex flex-col pt-[80px] pb-[110px]">
-        <h2 class="testimonial__title h2 mb-9 text-center">
+        <h2 class="testimonial__title h2 mb-9 text-center !text-accent">
           <?php echo esc_html(get_field('testimonial_title')); ?>
         </h2>
         <!-- slider -->
@@ -147,7 +144,7 @@ Template Name: "Home Page"
                 <div class="swiper-slide">
                   <!-- item -->
                   <div
-                    class="testimonial__item w-full max-w-[450px] h-[340px] bg-white rounded-[30px] flex flex-col justify-center p-9 mx-auto">
+                    class="testimonial__item w-full max-w-[450px] h-[340px] bg-accent-secondary rounded-[30px] flex flex-col justify-center p-9 mx-auto">
                     <div class="flex gap-4 mb-6">
                       <img src="<?php echo esc_url($card['testimonial_image']); ?>" alt="client avatar" />
                       <div>
@@ -186,12 +183,147 @@ Template Name: "Home Page"
   </section>
 
   <!-- work -->
-  <section id="work" class="work mt-[80px] xl:mt-[200px] relative z-20">
-    <div class="container mx-auto">work</div>
+  <section id="our-work" class="work xl:scroll-mt-[70px] mt-[80px] xl:mt-[150px] relative z-20">
+    <div class="container mx-auto xl:px-0">
+      <!-- text -->
+      <div class="text-center mb-24">
+        <h2 class="work__title h2 mb-4"><?= esc_html(get_field('our_work_title')) ?></h2>
+        <p class="work__subtitle max-w-3xl mx-auto">
+          <?= esc_html(get_field('our_work_subtitle')) ?>
+        </p>
+      </div>
+      <!-- grid -->
+      <div class="work__grid grid grid-cols-1 xl:grid-cols-2 gap-x-[104px] gap-y-[56px]">
+        <!-- grid item -->
+         <?php if (have_rows('our_work_cards')) : ?>
+          <?php while (have_rows('our_work_cards')) : the_row(); ?>
+              <div class="w-full max-w-[548px] h-full mx-auto">
+                <img class="mb-6" src="<?= esc_url(get_sub_field('our_work_card_image')) ?>" alt="" />
+                <div class="flex justify-between items-center w-full">
+                  <div>
+                    <h3 class="h3"><?= esc_html(get_sub_field('our_work_card_title')) ?></h3>
+                    <p><?= esc_html(get_sub_field('our_work_card_category')) ?></p>
+                  </div>
+                  <button
+                    class="bg-accent-secondary hover:bg-accent-secondary/20 cursor-pointer transition-all w-[70px] h-[70px] rounded-full">
+                    <a href="<?= esc_url(get_sub_field('our_work_card_button')) ?>" target="_blank"><i class="ri-arrow-right-s-line text-3xl text-primary pl-1"></i></a>
+                  </button>
+                </div>
+              </div>
+          <?php endwhile; ?>
+        <?php endif; ?>
+      </div>
+    </div>
+  </section>
+
+  <!-- stats -->
+  <section class="stats mt-[80px] xl:mt-[150px] relative z-20 bg-accent-secondary py-[80px] xl:py-[150px]">
+    <div class="container mx-auto">
+      <!-- grid -->
+      <div class="grid grid-cols-1 xl:grid-cols-4 gap-12">
+        <!-- grid item -->
+        <div class="stats__item text-center xl:border-r xl:border-accent">
+          <h3 class="h1 !text-accent">12</h3>
+          <p class="">Years Of Experience</p>
+        </div>
+        <!-- grid item -->
+        <div class="stats__item text-center xl:border-r xl:border-accent">
+          <h3 class="h1 !text-accent">85</h3>
+          <p class="">Projects Completed</p>
+        </div>
+        <!-- grid item -->
+        <div class="stats__item text-center xl:border-r xl:border-accent">
+          <h3 class="h1 !text-accent">15</h3>
+          <p class="">Active Projects</p>
+        </div>
+        <!-- grid item -->
+        <div class="stats__item text-center">
+          <h3 class="h1 !text-accent">95</h3>
+          <p class="">Happy Customers</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- news -->
+  <section id="news" class="news mt-[80px] xl:mt-[150px] relative z-20">
+    <div class="container mx-auto px-0">
+      <!-- text -->
+      <div class="max-w-[810px] mx-auto text-center mb-[52px]">
+        <h2 class="news__title h2 mb-3">Articles & News</h2>
+        <p class="news__subtitle">
+          It is a long established fact that a reader will be distracted by
+          the of readable content of a page when lookings at its layouts the
+          points of using.
+        </p>
+      </div>
+      <!-- grid -->
+      <div class="news__grid grid grid-cols-1 xl:grid-cols-3 gap-[27px]">
+        <!-- grid item -->
+        <div
+          class="news__item w-full max-w-[382px] h-[520px] border border-primary/20 rounded-[62px] p-[20px] hover:bg-accent-secondary transition-all group cursor-pointer mx-auto xl:mx-0">
+          <img class="mb-5" src="<?= esc_url(get_template_directory_uri()) ?>/assets/img/news/01.png" alt="" />
+          <div class="flex flex-col gap-[30px]">
+            <h3 class="h3">
+              Let's Get Solution For Building Construction Work
+            </h3>
+            <div class="flex items-center justify-between">
+              <p class="text-base">22, June, 2024</p>
+              <button class="bg-accent-secondary w-[52px] h-[52px] rounded-full group-hover:bg-white transition-all">
+                <i class="ri-arrow-right-s-line text-3xl text-primary pl-1"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- grid item -->
+        <div
+          class="news__item w-full max-w-[382px] h-[520px] border border-primary/20 rounded-[62px] p-[20px] hover:bg-accent-secondary transition-all group cursor-pointer mx-auto xl:mx-0">
+          <img class="mb-5" src="<?= esc_url(get_template_directory_uri()) ?>/assets/img/news/02.png" alt="" />
+          <div class="flex flex-col gap-[30px]">
+            <h3 class="h3">Low Cost Latest Invented Interior Designing</h3>
+            <div class="flex items-center justify-between">
+              <p class="text-base">24, June, 2024</p>
+              <button class="bg-accent-secondary w-[52px] h-[52px] rounded-full group-hover:bg-white transition-all">
+                <i class="ri-arrow-right-s-line text-3xl text-primary pl-1"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- grid item -->
+        <div
+          class="news__item w-full max-w-[382px] h-[520px] border border-primary/20 rounded-[62px] p-[20px] hover:bg-accent-secondary transition-all group cursor-pointer mx-auto xl:mx-0">
+          <img class="mb-5" src="<?= esc_url(get_template_directory_uri()) ?>/assets/img/news/03.png" alt="" />
+          <div class="flex flex-col gap-[30px]">
+            <h3 class="h3">Best For Any Office & Business Interior</h3>
+            <div class="flex items-center justify-between">
+              <p class="text-base">28, June, 2024</p>
+              <button class="bg-accent-secondary w-[52px] h-[52px] rounded-full group-hover:bg-white transition-all">
+                <i class="ri-arrow-right-s-line text-3xl text-primary pl-1"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- contact -->
+  <section id="contact" class="contact xl:scroll-mt-[200px] mt-[80px] xl:mt-[150px] relative z-20">
+    <div class="contact__container container mx-auto bg-primary sm:rounded-[70px] py-[80px]">
+      <div class="contact__text max-w-[640px] mx-auto text-center">
+        <h2 class="h2 !text-white mb-4">Do You Want To Join Interno?</h2>
+        <p class="text-white mb-8 max-w-sm xl:max-w-none mx-auto">
+          It is a long established fact will be distracted
+        </p>
+        <button class="btn btn-accent mx-auto">
+          Connect With Us <i class="ri-arrow-right-line text-primary"></i>
+        </button>
+      </div>
+    </div>
   </section>
 
   <!-- temporary div -->
-  <div class="h-[3000px]"></div>
+  <!-- <div class="h-[3000px]"></div> -->
 </main>
 
 <?php get_footer(); ?>

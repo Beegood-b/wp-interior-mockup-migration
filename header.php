@@ -21,7 +21,7 @@
 	<meta name="description" content="<?php bloginfo('description'); ?>" />
 	<link rel="canonical" href="<?= esc_url(is_singular() ? get_permalink() : home_url('/')) ?>" />
 	<!-- Open Graph -->
-	<meta property="og:locale" content="<?= esc_attr( str_replace('_', '-', get_locale()) ) ?>" />
+	<meta property="og:locale" content="<?= esc_attr(str_replace('_', '-', get_locale())) ?>" />
 	<meta property="og:type" content="website" />
 	<meta property="og:title" content="Interno" />
 	<meta property="og:description" content="<?php bloginfo('description'); ?>" />

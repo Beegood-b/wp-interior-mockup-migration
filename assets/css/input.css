@@ -26,6 +26,10 @@
   }
 }
 
+@utility bg-hero {
+  background-image: url('../../assets/img/hero/bg.jpg');
+}
+
 /* @utility bg-grid {
   background-image: url('../img/grid.png');
 } */
@@ -82,5 +86,5 @@ h6 {
 /* swiper pagination */
 .swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet,
 .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
-  @apply bg-primary;
+  @apply bg-accent;
 }

@@ -1,11 +1,31 @@
 document.addEventListener("DOMContentLoaded", () => {
-
-  // burger btn
-  const navTriggerBtn = document.getElementById("nav-trigger-btn");
+ 
+    const navTriggerBtn = document.getElementById("nav-trigger-btn");
   const menuList = document.getElementById("menu-list");
 
-  navTriggerBtn.addEventListener("click", () => {
+  // Toggle menu on burger click
+  navTriggerBtn.addEventListener("click", (event) => {
+    event.stopPropagation(); // Prevent click from bubbling to document
     menuList.classList.toggle("nav-is-open");
+  });
+
+  // Close menu when clicking outside of it
+  document.addEventListener("click", (event) => {
+    if (
+      menuList.classList.contains("nav-is-open") &&
+      !menuList.contains(event.target) &&
+      event.target !== navTriggerBtn
+    ) {
+      menuList.classList.remove("nav-is-open");
+    }
+  });
+
+  // Close menu when any anchor inside it is clicked
+  const anchorLinks = menuList.querySelectorAll("a");
+  anchorLinks.forEach(anchor => {
+    anchor.addEventListener("click", () => {
+      menuList.classList.remove("nav-is-open");
+    });
   });
 
   // swiper
